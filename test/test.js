@@ -172,3 +172,36 @@ describe("Misc methods", function() {
 		});
 	});
 });
+
+describe("TV methods", function() {
+	it("can get info on a tv show", function(done) {
+		tmdb.tv.info(1402, function(err,res) {
+			res.id.should.equals(1402);
+			done();
+		});
+	});
+	it("can get alternative titles for a tv show", function(done) {
+		tmdb.tv.alternativeTitles(1402, function(err,res) {
+			res.id.should.equal(1402);
+			done();
+		});
+	});
+	it("can get the credits of a tv show", function(done) {
+		tmdb.tv.credits(1402, function(err,res) {
+			res.id.should.equal(1402);
+			done();
+		});
+	});
+	it("can get images for a tv show", function(done) {
+		tmdb.tv.images(1402, function(err,res) {
+			res.id.should.equal(1402);	
+			done();
+		});
+	});
+	it("can get the season info on a tv show", function(done) {
+		tmdb.tv.seasons_info(1402, 1, function(err,res) {
+			res.season_number.should.equal(1);	
+			done();
+		});
+	});
+});
