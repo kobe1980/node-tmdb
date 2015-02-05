@@ -155,7 +155,7 @@ describe("Misc methods", function() {
 	});
 	it("can get the movies playing in theaters", function(done) {
 		tmdb.misc.nowPlaying(function(err,res) {
-			res.total_results.should.equal(100);
+			res.total_results.should.greaterThan(0);
 			done();
 		});
 	});
@@ -176,12 +176,12 @@ describe("Misc methods", function() {
 describe("TV methods", function() {
 	it("can get info on a tv show", function(done) {
 		tmdb.tv.info(1402, function(err,res) {
-			res.id.should.equals(1402);
+			res.id.should.equal(1402);
 			done();
 		});
 	});
 	it("can get alternative titles for a tv show", function(done) {
-		tmdb.tv.alternativeTitles(1402, function(err,res) {
+		tmdb.tv.alternative_titles(1402, function(err,res) {
 			res.id.should.equal(1402);
 			done();
 		});
